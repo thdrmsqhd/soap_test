@@ -1,0 +1,17 @@
+package com.example.demo.controller;
+
+import org.locationtech.proj4j.CRSFactory;
+import org.locationtech.proj4j.CoordinateReferenceSystem;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	@GetMapping
+	public String home() {
+		CRSFactory crsFactory = new CRSFactory();
+		CoordinateReferenceSystem WGS84 = crsFactory.createFromName("epsg:4623");
+		return "home";
+	}
+}

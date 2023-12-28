@@ -1,0 +1,31 @@
+package com.example.demo.controller;
+
+import org.locationtech.proj4j.CRSFactory;
+import org.locationtech.proj4j.CoordinateReferenceSystem;
+import org.locationtech.proj4j.CoordinateTransform;
+import org.locationtech.proj4j.CoordinateTransformFactory;
+import org.locationtech.proj4j.ProjCoordinate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	@GetMapping
+	public String home() {
+		
+		CRSFactory crsFactory = new CRSFactory();
+		CoordinateReferenceSystem WGS84 = crsFactory.createFromParameters("WGS84",
+		    "+proj=longlat +datum=WGS84 +no_defs");
+		CoordinateReferenceSystem UTM = crsFactory.createFromParameters("UTM",
+		    "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
+		
+		CoordinateTransformFactory ctFactory = new CoordinateTransformFactory();
+		CoordinateTransform wgsToUtm = ctFactory.createTransform(WGS84, UTM);
+		
+		ProjCoordinate result = new ProjCoordinate();
+		wgsToUtm.transform(new ProjCoordinate(lon, lat), result);
+		
+		return "home";
+	}
+}

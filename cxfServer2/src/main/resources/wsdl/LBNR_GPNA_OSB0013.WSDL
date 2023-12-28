@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoService" targetNamespace="http://www.kt.com/bit/oss/LBNR_GPNA_OSB0013" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.kt.com/bit/standard/header/v1" xmlns:WL5G3N2="http://www.kt.com/bit/oss/LBNR_GPNA_OSB0013" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.kt.com/bit/standard/header/v1" xmlns="http://www.kt.com/bit/standard/header/v1" xmlns:ksh="http://www.kt.com/bit/standard/header/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.kt.com/bit/oss/LBNR_GPNA_OSB0013" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="BITHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="InterfaceID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="SourceSys" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="TargetSys" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="GUID" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="SeqNumber" type="xsd:int"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="ReturnCode" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="ReturnMSG" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" ref="Arbitrary"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Arbitrary">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="3" minOccurs="0" name="SearchKey">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute name="key" type="xsd:string"/>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.kt.com/bit/oss/LBNR_GPNA_OSB0013" xmlns:ksh="http://www.kt.com/bit/standard/header/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.kt.com/bit/oss/LBNR_GPNA_OSB0013" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <!-- Request Message Format-->
+      <xsd:element name="aiBiznaruOrderInfoRequest" type="tns:aiBiznaruOrderInfoRequest">
+			</xsd:element>
+      <!-- Response Message Format -->
+      <xsd:element name="aiBiznaruOrderInfoResult" type="tns:aiBiznaruOrderInfoResult">
+			</xsd:element>
+      <xsd:complexType name="aiBiznaruOrderInfoResult">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="resultCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="resultDesc" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="errorCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="errorDesc" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruOrderInfoRequest">
+        <xsd:sequence>
+          <xsd:element name="orderNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="relOrderNo" type="xsd:string">
+					</xsd:element>
+          <xsd:element name="orderSeq" type="xsd:string"/>
+          <xsd:element name="saId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="achngSaId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderType" type="xsd:string">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="updateType" type="xsd:string">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="accumUpdateType" type="xsd:string">
+					</xsd:element>
+          <xsd:element name="causeType" type="xsd:string"/>
+          <xsd:element name="receiptDate" type="xsd:string"/>
+          <xsd:element name="appointDate" type="xsd:string"/>
+          <xsd:element name="custId" type="xsd:string"/>
+          <xsd:element name="custNm" type="xsd:string"/>
+          <xsd:element name="bizplcNm" type="xsd:string"/>
+          <xsd:element name="pProdCD" type="xsd:string"/>
+          <xsd:element name="pProdNm" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="prodList" type="tns:aiBiznaruOrderProd">
+					</xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="orderTelList" type="tns:aiBiznaruOrderTel">
+					</xsd:element>
+          <xsd:element name="installAddressInfo" type="tns:aiBiznaruInstallAddress">
+					</xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="salesList" type="tns:aiBiznaruSales">
+					</xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="lineList" type="tns:aiBiznaruLine">
+					</xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="deviceList" type="tns:aiBiznaruDevice">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="oderComment" type="xsd:string">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BMctgCD" type="xsd:string">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="adminId" type="xsd:string">
+					</xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="adminNm" type="xsd:string">
+					</xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruOrderProd">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="prodCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="prodNm" type="xsd:string"/>
+          <xsd:element maxOccurs="1500" minOccurs="1" name="prodParamList" type="tns:aiBiznaruOrderProdParam"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruOrderProdParam">
+        <xsd:sequence>
+          <xsd:element name="paramTypeCd" type="xsd:string"/>
+          <xsd:element name="paramTypeNm" type="xsd:string"/>
+          <xsd:element name="paramValue" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruOrderTel">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contDivCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="telNo" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruInstallAddress">
+        <xsd:sequence>
+          <xsd:element name="svcOfcCd" type="xsd:string"/>
+          <xsd:element name="arnoAdrZipcd" type="xsd:string"/>
+          <xsd:element name="arnoAdrBasSbst" type="xsd:string"/>
+          <xsd:element name="arnoAdrDtlSbst" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="roadNAdrZipCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="roadnAdrBasSbst" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="roadnAdrDtlSbst" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="adrComment" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="mdmBldgId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="mdmBldgName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruSales">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="salesDivCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="salesManId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="salesCmpnId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="salesManNm" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="salesManTelNo" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruLine">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineDivCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineComCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineCustId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineSaId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineSvcNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="usimSvcNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lineDtlSbst" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="aiBiznaruDevice">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceSpplType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceStcCd" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceNm" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceCnt" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceMac" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deviceBarCd" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="PS_insertAiBiznaruOrderInfoRequest">
+    <WL5G3N0:part element="WL5G3N1:BITHeader" name="standardHeader"/>
+    <WL5G3N0:part element="WL5G3N2:aiBiznaruOrderInfoRequest" name="body"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PS_insertAiBiznaruOrderInfoResponse">
+    <WL5G3N0:part element="WL5G3N1:BITHeader" name="standardHeader"/>
+    <WL5G3N0:part element="WL5G3N2:aiBiznaruOrderInfoResult" name="body"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoPort">
+    <WL5G3N0:operation name="insertAiBiznaruOrderInfo">
+      <WL5G3N0:input message="WL5G3N2:PS_insertAiBiznaruOrderInfoRequest" name="input"/>
+      <WL5G3N0:output message="WL5G3N2:PS_insertAiBiznaruOrderInfoResponse" name="output"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoBinding" type="WL5G3N2:PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoPort">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="insertAiBiznaruOrderInfo">
+      <WL5G3N3:operation soapAction="http://www.kt.com/bit/oss/insertAiBiznaruOrderInfo"/>
+      <WL5G3N0:input name="input">
+        <WL5G3N3:header message="WL5G3N2:PS_insertAiBiznaruOrderInfoRequest" part="standardHeader" use="literal"/>
+        <WL5G3N3:body parts="body" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="output">
+        <WL5G3N3:header message="WL5G3N2:PS_insertAiBiznaruOrderInfoResponse" part="standardHeader" use="literal"/>
+        <WL5G3N3:body parts="body" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoBindingQSService">
+    <WL5G3N0:port binding="WL5G3N2:PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoBinding" name="PS_AIBIZNURUPNAServiceInsertAiBiznaruOrderInfoBindingQSPort">
+      <WL5G3N3:address location="http://osbap01:80/GPNA/AIBIZNURUPNAServiceInsertAiBiznaruOrderInfo"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

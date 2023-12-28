@@ -1,0 +1,13 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.tutorialspoint.helloworld.HelloWorldPortType"><rhs name\="com.example.demo.service.HelloWorldImpl"/></lhs><lhs name\="javax.xml.ws.WebServiceFeature"><rhs name\="org.apache.cxf.feature.LoggingFeature"/></lhs><lhs name\="org.example.ticketagent.ObjectFactory"><rhs name\="org.example.ticketagent.ObjectFactory"/></lhs><lhs name\="java.lang.Number"><rhs name\="java.math.BigInteger"/></lhs><lhs name\="java.math.BigInteger"><rhs name\="java.math.BigInteger"/></lhs><lhs name\="java.lang.Enum"><rhs name\="org.springframework.boot.test.context.SpringBootTest$WebEnvironment"/><rhs name\="javax.jws.soap.SOAPBinding$ParameterStyle"/><rhs name\="javax.jws.WebParam$Mode"/></lhs><lhs name\="org.example.ticketagent.TicketAgent"><rhs name\="com.example.demo.endpoint.TicketAgentImpl"/></lhs><lhs name\="org.apache.cxf.interceptor.InterceptorProvider"><rhs name\="org.apache.cxf.jaxws.EndpointImpl"/></lhs><lhs name\="org.apache.cxf.configuration.Configurable"><rhs name\="org.apache.cxf.jaxws.EndpointImpl"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="org.apache.cxf.jaxws.EndpointImpl"/></lhs><lhs name\="javax.xml.ws.Endpoint"><rhs name\="org.apache.cxf.jaxws.EndpointImpl"/></lhs><lhs name\="org.apache.cxf.jaxws.EndpointImpl"><rhs name\="org.apache.cxf.jaxws.EndpointImpl"/></lhs><lhs name\="org.locationtech.proj4j.CRSFactory"><rhs name\="org.locationtech.proj4j.CRSFactory"/></lhs><lhs name\="org.locationtech.proj4j.CoordinateTransformFactory"><rhs name\="org.locationtech.proj4j.CoordinateTransformFactory"/></lhs><lhs name\="org.locationtech.proj4j.ProjCoordinate"><rhs name\="org.locationtech.proj4j.ProjCoordinate"/></lhs></history>
+content_assist_number_of_computers=15
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.exception.name=e
+org.eclipse.jdt.ui.formatterprofiles.version=22
+org.eclipse.jdt.ui.gettersetter.use.is=true
+org.eclipse.jdt.ui.overrideannotation=true
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

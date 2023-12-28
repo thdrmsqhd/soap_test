@@ -1,0 +1,50 @@
+package com.example.demo.controller;
+
+import org.locationtech.proj4j.CRSFactory;
+import org.locationtech.proj4j.CoordinateReferenceSystem;
+import org.locationtech.proj4j.CoordinateTransform;
+import org.locationtech.proj4j.CoordinateTransformFactory;
+import org.locationtech.proj4j.ProjCoordinate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	@GetMapping
+	public String home() {
+		
+		CRSFactory crsFactory = new CRSFactory();
+		
+		//WGS-84 : 위경
+		CoordinateReferenceSystem WGS84 = crsFactory.createFromParameters("WGS84",
+			"+title=WGS84 +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees");
+		
+		//ATACAMA 
+		CoordinateReferenceSystem ESPG5181 = crsFactory.createFromName("EPSG:5181");
+		
+		//올래 안전작업 허가 사용 좌표
+		CoordinateReferenceSystem GRS80 = crsFactory.createFromParameters("GRS80",
+			"+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +units=m +no_defs");
+
+		
+		CoordinateTransformFactory ctFactory = new CoordinateTransformFactory();
+		CoordinateTransform wgsToUtm = ctFactory.createTransform(ESPG5181, WGS84);
+		
+		ProjCoordinate result = new ProjCoordinate();
+		wgsToUtm.transform(new ProjCoordinate(214593.911572195, 451216.699925214), result);
+		
+//		CoordinateTransformFactory ctFactory2 = new CoordinateTransformFactory();
+		CoordinateTransform wgsToUtm2 = ctFactory.createTransform(WGS84, GRS80);
+		
+		ProjCoordinate result2 = new ProjCoordinate();
+		wgsToUtm2.transform(new ProjCoordinate(result.x, result.y), result2);
+		
+		System.out.println( "WGS84" );
+		System.out.println( result );
+		System.out.println( "GRS80" );
+		System.out.println( result2 );
+		return "home";
+	}
+}
+//X :127.294557, Y :36.7361638

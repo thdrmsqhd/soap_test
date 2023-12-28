@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.example2.com" schemaLocation="primary.xsd"/>
+    <xsd:element name="getCountryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="name" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getCountryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="country" type="tns:country"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="country">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="population" type="xsd:int"/>
+            <xsd:element name="capital" type="xsd:string"/>
+            <xsd:element name="currency" type="tns:currency"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="currency">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="GBP"/>
+            <xsd:enumeration value="EUR"/>
+            <xsd:enumeration value="PLN"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
